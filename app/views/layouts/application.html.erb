@@ -10,6 +10,30 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark teal mb-4">
+            <a class="navbar-brand" href="/">Z-Mobile</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+
+
+
+                </ul>
+                <ul class="nav pull-right">
+                  <% if current_user %>
+                    <!-- <li>  <# render 'shopping_carts/shopping_cart' %> &nbsp &nbsp </li> -->
+                    <li><%= link_to('Logout', destroy_user_session_path, method: :delete , class: "navbar-brand") %> &nbsp &nbsp </li> 
+                  <% else %>
+                    <li><%= link_to "Sign In", new_user_registration_path, class: "a-primary" %> &nbsp &nbsp
+                    </li>
+                    <li><%= link_to "Login", new_user_session_path, class: "a-primary" %> &nbsp </li>
+                  <% end %>
+                </ul>
+
+            </div>
+    </nav
     <%= yield %>
   </body>
 </html>
